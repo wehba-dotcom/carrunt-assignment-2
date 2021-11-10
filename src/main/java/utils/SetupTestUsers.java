@@ -23,10 +23,11 @@ public class SetupTestUsers {
     User user = new User("user", "test");
     User admin = new User("admin", "test");
     User both = new User("user_admin", "test");
-    
+
     if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test"))
       throw new UnsupportedOperationException("You have not changed the passwords");
 
+    
     em.getTransaction().begin();
     Role userRole = new Role("user");
     Role adminRole = new Role("admin");
