@@ -9,7 +9,7 @@ to covering your database from different attacks,
 like them how try to access user data.
 so we covered every useres password,
 with this statment(BCrypt.checkpw(pw,userPass)).
-this jbcypt change the user-password to three statment(header,payload,signtuer),
+this jbcypt change the user-password to three statment(header,paylaod,signature),
 and there is a dot between them, so it dosnot come back like a string.
 so difficult to all kinds of hackers tekniq  at find it. 
 **the other solve problem in this project:**
