@@ -19,7 +19,6 @@ public class SetupTestUsers {
     // CHANGE the three passwords below, before you uncomment and execute the code below
     // Also, either delete this file, when users are created or rename and add to .gitignore
     // Whatever you do DO NOT COMMIT and PUSH with the real passwords
-
     
     User user = new User("user", "test");
     User admin = new User("admin", "test");
