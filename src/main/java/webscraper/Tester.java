@@ -43,8 +43,7 @@ public class Tester {
         }
         return result;
     }
-
-
+    
     public static void main(String[] args) {
         long timeSequental;
         long start = System.nanoTime();
