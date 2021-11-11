@@ -80,6 +80,15 @@ public class DemoResource {
         long endTime = System.nanoTime()-startTime;
         return TagDTO.getTagsAsJson("Parallel fetching",dataFeched, endTime);
     }
+    @Path("sequental")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getTagsSequental() throws Exception {
+        long startTime = System.nanoTime();
+        List<TagCounter> dataFeched = Tester.runSequental();
+        long endTime = System.nanoTime()-startTime;
+        return TagDTO.getTagsAsJson("Sequental fetching",dataFeched, endTime);
+    }
 
 
 }

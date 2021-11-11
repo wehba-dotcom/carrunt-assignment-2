@@ -14,6 +14,7 @@ public class Tester {
         urls.add(new TagCounter("https://www.google.com"));
         urls.add(new TagCounter("https://politiken.dk"));
         urls.add(new TagCounter("https://cphbusiness.dk"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2bc9f118-3f2b-4374-902d-add40102329c"));
         for (TagCounter tc : urls) {
             tc.doWork();
         }
