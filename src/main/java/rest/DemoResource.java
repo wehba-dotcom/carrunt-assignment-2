@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import entities.User;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
+import javax.json.Json;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
@@ -81,6 +82,26 @@ public class DemoResource {
         String detials = "";
         return TagDTO.getTagsAsJson("Parallel fetching",dataFeched, endTime,detials);
     }
+    @Path("sequental")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getTagsSequental() throws Exception {
+        long startTime = System.nanoTime();
+        List<TagCounter> dataFeched = Tester.runSequental();
+        long endTime = System.nanoTime()-startTime;
+        String detials = "";
+        return TagDTO.getTagsAsJson("Sequental fetching",dataFeched, endTime,detials);
+    }
+    @Path("security")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getTagsRoutering() throws Exception {
+        long startTime = System.nanoTime();
+        List<TagCounter> dataFeched = Tester.runParrallel();
+        long endTime = System.nanoTime()-startTime;
+        String detials = "";
+        return TagDTO.getTagsAsJson("Security-Parallel fetching",dataFeched, endTime,detials);
+    }
     @Path("routing")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -91,15 +112,15 @@ public class DemoResource {
         String detials ="";
         return TagDTO.getTagsAsJson("Parallel-Routing fetching",dataFeched, endTime,detials);
     }
-    @Path("sequental")
+    @Path("thread")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getTagsSequental() throws Exception {
+    public String getTagsThread() throws Exception {
         long startTime = System.nanoTime();
-        List<TagCounter> dataFeched = Tester.runSequental();
+        List<TagCounter> dataFeched = Tester.runThread();
         long endTime = System.nanoTime()-startTime;
         String detials = "";
-        return TagDTO.getTagsAsJson("Sequental fetching",dataFeched, endTime,detials);
+        return TagDTO.getTagsAsJson("Sequental-Thread fetching",dataFeched, endTime,detials);
     }
 
 
