@@ -78,7 +78,18 @@ public class DemoResource {
         long startTime = System.nanoTime();
         List<TagCounter> dataFeched = Tester.runParrallel();
         long endTime = System.nanoTime()-startTime;
-        return TagDTO.getTagsAsJson("Parallel fetching",dataFeched, endTime);
+        String detials = "";
+        return TagDTO.getTagsAsJson("Parallel fetching",dataFeched, endTime,detials);
+    }
+    @Path("routing")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getTagsRouting() throws Exception {
+        long startTime = System.nanoTime();
+        List<TagCounter> dataFeched = Tester.runRouting();
+        long endTime = System.nanoTime()-startTime;
+        String detials ="";
+        return TagDTO.getTagsAsJson("Parallel-Routing fetching",dataFeched, endTime,detials);
     }
     @Path("sequental")
     @GET
@@ -87,7 +98,8 @@ public class DemoResource {
         long startTime = System.nanoTime();
         List<TagCounter> dataFeched = Tester.runSequental();
         long endTime = System.nanoTime()-startTime;
-        return TagDTO.getTagsAsJson("Sequental fetching",dataFeched, endTime);
+        String detials = "";
+        return TagDTO.getTagsAsJson("Sequental fetching",dataFeched, endTime,detials);
     }
 
 

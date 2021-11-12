@@ -9,10 +9,12 @@ import org.jsoup.select.Elements;
 public class TagCounter {
   private String url;
   private String title;
+  private String detials;
   private int h1Count,h2Count, divCount, bodyCount;
   private boolean isCalled=false;
-  TagCounter(String url){
+  TagCounter(String url,String detials){
     this.url = url;
+    this.detials=detials;
   }
   
   /*
@@ -37,9 +39,19 @@ public class TagCounter {
       this.divCount = divs.size();
       Elements bodys = doc.select("body");
       this.bodyCount = bodys.size();
+     /* bodys = doc.select("body");
+      this.detials= bodys.text();*/
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
+  }
+
+  public String getDetials() {
+    return detials;
+  }
+
+  public void setDetials(String detials) {
+    this.detials = detials;
   }
 
   public String getUrl(){
