@@ -80,7 +80,7 @@ public class DemoResource {
         List<TagCounter> dataFeched = Tester.runParrallel();
         long endTime = System.nanoTime()-startTime;
         String detials = "";
-        return TagDTO.getTagsAsJson("Parallel fetching",dataFeched, endTime,detials);
+        return TagDTO.getTagsAsJson("Security-Parallel fetching",dataFeched, endTime,detials);
     }
     @Path("sequental")
     @GET
@@ -90,7 +90,7 @@ public class DemoResource {
         List<TagCounter> dataFeched = Tester.runSequental();
         long endTime = System.nanoTime()-startTime;
         String detials = "";
-        return TagDTO.getTagsAsJson("Sequental fetching",dataFeched, endTime,detials);
+        return TagDTO.getTagsAsJson("Security-Sequental fetching",dataFeched, endTime,detials);
     }
     @Path("security")
     @GET
