@@ -72,7 +72,7 @@ public class DemoResource {
         String thisuser = securityContext.getUserPrincipal().getName();
         return "{\"msg\": \"Hello to (admin) User: " + thisuser + "\"}";
     }
-    
+
     @Path("parallel")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -83,6 +83,7 @@ public class DemoResource {
         String detials = "";
         return TagDTO.getTagsAsJson("Security-Parallel fetching",dataFeched, endTime,detials);
     }
+
     @Path("sequental")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
