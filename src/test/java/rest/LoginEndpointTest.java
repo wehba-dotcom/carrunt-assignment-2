@@ -112,7 +112,9 @@ public class LoginEndpointTest {
 
     @Test
     public void serverIsRunning() {
-        given().when().get("/info").then().statusCode(200);
+        given()
+                .when().get("/info")
+                .then().statusCode(200);
     }
 
     @Test

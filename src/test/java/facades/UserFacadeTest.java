@@ -1,5 +1,6 @@
 package facades;
 
+import entities.User;
 import utils.EMF_Creator;
 import entities.RenameMe;
 import javax.persistence.EntityManager;
@@ -12,19 +13,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 //Uncomment the line below, to temporarily disable this test
-//@Disabled
-public class FacadeExampleTest {
+//Disabled
+public class UserFacadeTest {
 
     private static EntityManagerFactory emf;
-    private static FacadeExample facade;
+    private static UserFacade facade;
 
-    public FacadeExampleTest() {
+    public UserFacadeTest() {
     }
 
     @BeforeAll
     public static void setUpClass() {
        emf = EMF_Creator.createEntityManagerFactoryForTest();
-       facade = FacadeExample.getFacadeExample(emf);
+       facade = UserFacade.getUserFacade(emf);
     }
 
     @AfterAll
@@ -39,10 +40,7 @@ public class FacadeExampleTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            em.createNamedQuery("RenameMe.deleteAllRows").executeUpdate();
-            em.persist(new RenameMe("Some txt", "More text"));
-            em.persist(new RenameMe("aaa", "bbb"));
-
+            em.persist(new User("wehba", "alltoone"));
             em.getTransaction().commit();
         } finally {
             em.close();
@@ -56,8 +54,13 @@ public class FacadeExampleTest {
 
     // TODO: Delete or change this method 
     @Test
-    public void testAFacadeMethod() throws Exception {
-        assertEquals(2, facade.getRenameMeCount(), "Expects two rows in the database");
+    public void testgetVeryfiedUse() throws Exception {
+        EntityManager em = emf.createEntityManager();
+        User user;
+
+            user= em.find(User.class, "alltoone");
+
+        assertEquals(user.verifyPassword("alltoone"), "true");
     }
     
 
