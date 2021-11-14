@@ -63,7 +63,6 @@ public class DemoResource {
         String thisuser = securityContext.getUserPrincipal().getName();
         return "{\"msg\": \"Hello to User: " + thisuser + "\"}";
     }
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("admin")
