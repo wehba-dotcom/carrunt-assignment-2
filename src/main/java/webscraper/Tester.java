@@ -21,16 +21,15 @@ public class Tester {
     }
     public static List<TagCounter> runSequental() {
         List<TagCounter> urls = new ArrayList();
-        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d944e4c5-4ee1-4539-8a21-add4010232b0","First del about JWT"));
-        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f730364f-2ba9-411b-9fb2-add40102329c","Secund del about JWT"));
-        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2bc9f118-3f2b-4374-902d-add40102329c","Third del about JWT"));
-        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=785daf97-4ccc-4569-a09e-add4010232a2","Fouth del about JWT"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d944e4c5-4ee1-4539-8a21-add4010232b0", "First del about JWT"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f730364f-2ba9-411b-9fb2-add40102329c", "Secund del about JWT"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2bc9f118-3f2b-4374-902d-add40102329c", "Third del about JWT"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=785daf97-4ccc-4569-a09e-add4010232a2", "Fouth del about JWT"));
         for (TagCounter tc : urls) {
             tc.doWork();
         }
         return urls;
     }
-
     public static List<TagCounter> runParrallel() throws Exception{
         List<TagCounter> urls = new ArrayList();
         urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d944e4c5-4ee1-4539-8a21-add4010232b0","First del about JWT"));
