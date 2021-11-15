@@ -54,9 +54,9 @@ public class Tester {
     }
     public static List<TagCounter> runRouting() throws Exception{
         List<TagCounter> urls = new ArrayList();
-        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=998aa360-8863-4cbe-8680-add301006293","First del about router"));
-        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=63ed4ec4-2cd4-4931-b978-add300f57530","Secund del about router"));
-        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=63ed4ec4-2cd4-4931-b978-add300f57530","Third del about router"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=998aa360-8863-4cbe-8680-add301006293","First del about routing"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=63ed4ec4-2cd4-4931-b978-add300f57530","Secund del about routing"));
+        urls.add(new TagCounter("https://cphbusiness.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=63ed4ec4-2cd4-4931-b978-add300f57530","Third del about routing"));
 
         ExecutorService executorService = Executors.newFixedThreadPool(8);
         List<Future<TagCounter>> list = new ArrayList<>();
