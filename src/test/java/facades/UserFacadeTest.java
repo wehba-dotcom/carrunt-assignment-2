@@ -53,11 +53,11 @@ public class UserFacadeTest {
     @Test
     public void testgetVeryfiedUse() throws Exception {
         EntityManager em = emf.createEntityManager();
-        User user;
+        User user1= new User("wehba","alltoone");
 
-            user= em.find(User.class, "alltoone");
+            user1= em.find(User.class, "alltoone");
 
-        assertEquals(user.verifyPassword("alltoone"), "true");
+        assertEquals(user1.verifyPassword("alltoone"), "true");
     }
     
 
