@@ -10,7 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //Uncomment the line below, to temporarily disable this test
-@Disabled
+//Disabled
 public class UserFacadeTest {
 
     private static EntityManagerFactory emf;
@@ -37,6 +37,7 @@ public class UserFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
+            em.createNamedQuery("User.deleteAllRows").executeUpdate();
             em.persist(new User("wehba", "alltoone"));
             em.getTransaction().commit();
         } finally {
@@ -55,9 +56,9 @@ public class UserFacadeTest {
         EntityManager em = emf.createEntityManager();
         User user1= new User("wehba","alltoone");
 
-            user1= em.find(User.class, "alltoone");
+            user1= em.find(User.class, "wehba");
 
-        assertEquals(user1.verifyPassword("alltoone"), "true");
+        assertEquals(user1.verifyPassword("alltoone"), true);
     }
     
 
